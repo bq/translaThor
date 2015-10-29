@@ -1,7 +1,21 @@
 node_modules/
-bower_components/
-coverage/
-.sass-cache/
-.idea/
-.tmp/
 dist/
+.tmp/
+.sass-cache
+bower_components/
+*.log
+*~
+nbproject
+target/
+app/res/config/local/config.json
+
+coverage/
+
+# Editor File Ignore
+*.sublime-project
+*.sublime-workspace
+.idea/
+
+i18n
+propertiesScripts
+app/scripts/config.js
