@@ -1,32 +1,27 @@
-(function() {
-  'use strict';
-
-  angular
-    .module('translaThor')
-    .directive('acmeNavbar', acmeNavbar);
-
-  /** @ngInject */
-  function acmeNavbar() {
-    var directive = {
+angular.module('translaThor', [])
+  .directive('navBar', function() {
+    return {
       restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: NavbarController,
-      controllerAs: 'vm',
-      bindToController: true
+      transclude: true,
+      scope: {},
+      controller: ['$scope', function($scope) {
+        var sections = $scope.sections = [];
+
+        $scope.select = function(section) {
+          angular.forEach(sections, function(section) {
+            section.selected = false;
+          });
+          section.selected = true;
+        };
+
+        this.addSection = function(section) {
+          if (sections.length === 0) {
+            $scope.select(section);
+          }
+          sections.push(section);
+        };
+      }],
+      templateUrl: 'app/components/navbar/navbar.html'
     };
 
-    return directive;
-
-    /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
-
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
-    }
-  }
-
-})();
+  });
