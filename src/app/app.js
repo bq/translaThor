@@ -9,24 +9,27 @@
  * Main module of the application.
  */
 angular
-  .module('bitbloqApp', [
+  .module('translaThorApp', [
     'ngAria',
     'ngCookies',
     'ngRoute',
     'ngSanitize',
-    'ngStorage',
-    'ngMessages',
-    'ngResource',
-    'ui.router'
-  ]).config(['$stateProvider', function($stateProvider) {
-    $stateProvider
-      .state('main', {
-        url: '/',
-        templateUrl: 'app/main/main.html'
+    'ngStorage'
+  ]).config(['$provide', '$routeProvider', function($provide, $routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'app/landing/landing.html',
+        controller: 'LandingControler'
       })
-      .state('main', {
-        url: '/posi',
-        templateUrl: 'app/main/poosi.html'
+      .when('/main', {
+        templateUrl: 'app/main/main.html',
+        controller: 'MainControler'
+      })
+      .when('/404', {
+        templateUrl: '404.html'
+      })
+      .otherwise({
+        redirectTo: '/404'
       });
   }])
   .run(function() {

@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name translaThorApp.controller:MainCtrl
+ * @name translaThorApp.controller:LandingCtrl
  * @description
- * # MainCtrl
+ * # LandingCtrl
  * Controller of the translaThorApp
  */
 angular.module('translaThorApp')
-  .controller('MainController', function() {});
+  .controller('LandingController', function() {});

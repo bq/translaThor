@@ -1,6 +1,22 @@
 {
   "name": "translaThor",
   "version": "0.0.0",
+  "moduleName": "translaThorApp",
+  "description": "translaThor is a web application that helps people translate in a more agile way.",
+  "keywords": [
+    "bq",
+    "translathor",
+    "translate",
+    "translation"
+  ],
+  "contributors": [
+    "Laura del Río <laura.delrio@bq.com>",
+    "Diego Segura <diego.segura@bq.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bq/translaThor"
+  },
   "dependencies": {},
   "scripts": {
     "test": "gulp test"

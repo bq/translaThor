@@ -1,4 +1,4 @@
-angular.module('translaThor', [])
+angular.module('translaThorApp', [])
   .directive('navBar', function() {
     return {
       restrict: 'E',
