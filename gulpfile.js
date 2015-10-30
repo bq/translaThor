@@ -8,6 +8,7 @@
 
 var gulp = require('gulp');
 var wrench = require('wrench');
+var jshint = require('gulp-jshint');
 
 /**
  *  This will load all js or coffee files in the gulp directory
@@ -26,4 +27,11 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
  */
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
+});
+
+
+gulp.task('jshint', function() {
+  return gulp.src(['./src/app/{,*/}*.js'])
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('jshint-stylish'));
 });
